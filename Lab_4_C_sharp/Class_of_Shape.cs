@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+using System.Runtime.ConstrainedExecution;
 using System.Security.Cryptography;
 
 abstract public class Shape
@@ -30,18 +31,19 @@ public class Circle : Shape
     {
         this.radius = radius;
     }
-
+ 
     public override double Area()
     {
         double area;
-        area = Math.PI * this.radius;
+        area = Math.Round(Math.PI * this.radius, 2);
         return area;
     }
+ 
 
     public override double Perimeter()
     {
         double perimeter;
-        perimeter = 2 * Math.PI * this.radius;
+        perimeter = Math.Round(2 * Math.PI * this.radius, 2);
         return perimeter;
     }
 }
@@ -58,15 +60,14 @@ public class Square : Shape
     public override double Area()
     {
         double area;
-        area = 4 * this.side;
+        area = Math.Round(4 * this.side, 2);
         return area;
     }
 
     public override double Perimeter()
     {
         double perimeter;
-        perimeter = this.side * this.side;
+        perimeter = Math.Round(this.side * this.side, 2);
         return perimeter;
     }
-
 }
